@@ -2,6 +2,12 @@
 
 A macOS menu-bar app that lists ejectable volumes, ejects them via Disk Arbitration, and helps when a volume is busy by showing which processes are blocking it.
 
+## Download
+
+Grab the latest notarized **`.dmg`** from [Releases](https://github.com/RamenPacket84/ejectnow/releases).
+
+Open the disk image, drag **EjectNow** to **Applications**, then launch it. Look for the USB-drive icon in the menu bar.
+
 ## Requirements
 
 - macOS 13 or later
@@ -15,13 +21,30 @@ A macOS menu-bar app that lists ejectable volumes, ejects them via Disk Arbitrat
 - **Show Blockers…** — uses `lsof` to list processes with open files on the volume
 - **Kill & Eject** — terminates same-user blocker processes, then retries eject
 
-## Build & run
+## Build & run (from source)
 
 1. Open `ejectnow.xcodeproj` in Xcode
 2. Select the **ejectnow** scheme
 3. Run (⌘R)
 
 Look for the USB-drive icon in the menu bar.
+
+## Build a release `.dmg`
+
+```bash
+./scripts/build-release-dmg.sh 1.0.0
+```
+
+Output: `dist/EjectNow-1.0.0.dmg` (Developer ID–signed app + Applications symlink).
+
+**Before publishing to GitHub**, store notarization credentials and rebuild:
+
+```bash
+xcrun notarytool store-credentials ejectnow
+./scripts/build-release-dmg.sh 1.0.0
+```
+
+The script notarizes and staples the DMG when the `ejectnow` keychain profile exists.
 
 ## Notes
 

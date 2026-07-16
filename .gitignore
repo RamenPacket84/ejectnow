@@ -61,6 +61,7 @@ Temporary Items
 *.dSYM.zip
 *.dSYM
 /*.app
+dist/
 notarization-*.json
 notarization-*.log
 
