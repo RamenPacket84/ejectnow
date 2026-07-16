@@ -1,6 +1,6 @@
 # EjectNow
 
-A macOS menu-bar app that lists ejectable volumes, ejects them via Disk Arbitration, and helps when a volume is busy by showing which processes are blocking it.
+Developer ID signed and Apple-notarized macOS menu-bar app that lists ejectable volumes, ejects them via Disk Arbitration, and helps when a volume is busy by showing which processes are blocking it.
 
 ## Install
 
@@ -18,7 +18,7 @@ Look for the USB-drive icon in the menu bar.
 ## Features
 
 - Menu-bar only (no Dock icon)
-- Live list of removable / `/Volumes` mounts (excludes the boot volume and network shares)
+- Live list of removable `/Volumes` mounts (excludes the boot volume and network shares)
 - **Eject** and **Force Eject…** per volume
 - **Show Blockers…** — uses `lsof` to list processes with open files on the volume
 - **Kill & Eject** — terminates same-user blocker processes, then retries eject
